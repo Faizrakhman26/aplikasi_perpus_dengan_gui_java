@@ -4,6 +4,8 @@
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     "d:\\00.Download\\App\\rs2xml.jar",
-    "e:\\01.KULIAH\\00.MATKUL\\Semester 3\\postgresql-42.6.0.jar"
+    "e:\\01.KULIAH\\00.MATKUL\\Semester 3\\postgresql-42.6.0.jar",
+    "e:\\01.KULIAH\\00.MATKUL\\Semester 3\\OOP\\postgresql-42.6.0.jar",
+    "e:\\01.KULIAH\\00.MATKUL\\Semester 3\\OOP\\rs2xml.jar"
   ]
 }
