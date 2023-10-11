@@ -4,19 +4,46 @@ import java.sql.*;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 import java.awt.BorderLayout;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.awt.Color;
+import java.awt.Image;
 
 public class adminmenu {
     public static void admin_menu() {
 
-        JFrame f = new JFrame("Admin");
+        // form Admin Menu
+        JFrame f = new JFrame("MENU");
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(700, 400);
+        f.setLayout(null);
 
-        JButton viewBooksButton = new JButton("View Books");
-        viewBooksButton.setBounds(20, 20, 150, 40);
+        // background
+        ImageIcon backgroundImage = new ImageIcon("src/img/pxfuel.jpg");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, 700, 400);
+
+        // date and time
+        JLabel dateTimeLabel = new JLabel();
+        dateTimeLabel.setBounds(520, 10, 170, 20);
+        dateTimeLabel.setForeground(Color.WHITE);
+        Timer timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat("EEE , dd-MMM-yyyy | HH:mm:ss");
+                Date now = new Date();
+                dateTimeLabel.setText(dateFormat.format(now));
+            }
+        });
+        timer.start();
+
+        // Button View Book
+        Icon viewBooksIcon = new ImageIcon(new ImageIcon("src/img/viewbook.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton viewBooksButton = new JButton(" VIEW BOOK", viewBooksIcon);
+        viewBooksButton.setBounds(20, 10, 160, 40);
         viewBooksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame f = new JFrame("Books");
+                JFrame vFrame = new JFrame("BOOKS");
 
                 Connection connection = Connect.connect();
                 String sql = "SELECT * FROM books";
@@ -42,22 +69,25 @@ public class adminmenu {
                     JPanel buttonPanel = new JPanel();
                     buttonPanel.add(refreshButton);
 
-                    f.add(buttonPanel, BorderLayout.NORTH);
-                    f.add(scrollPane, BorderLayout.CENTER);
-                    f.setSize(600, 300);
-                    f.setVisible(true);
-                    f.setLocationRelativeTo(null);
+                    vFrame.add(buttonPanel, BorderLayout.NORTH);
+                    vFrame.add(scrollPane, BorderLayout.CENTER);
+                    vFrame.setSize(650, 350);
+                    vFrame.setVisible(true);
+                    vFrame.setLocationRelativeTo(null);
                 } catch (SQLException e1) {
                     JOptionPane.showMessageDialog(null, e1);
                 }
             }
         });
 
-        JButton viewUsersButton = new JButton("View Users");
-        viewUsersButton.setBounds(20, 80, 150, 40);
+        // Button View User
+        Icon viewUserIcon = new ImageIcon(new ImageIcon("src/img/viewuser.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton viewUsersButton = new JButton(" VIEW USER  ", viewUserIcon);
+        viewUsersButton.setBounds(20, 70, 160, 40);
         viewUsersButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame f = new JFrame("Users List");
+                JFrame f = new JFrame("USER LIST");
 
                 Connection connection = Connect.connect();
                 String sql = "SELECT * FROM users";
@@ -78,13 +108,17 @@ public class adminmenu {
             }
         });
 
-        JButton updateBookButton = new JButton("Update Book");
-        updateBookButton.setBounds(20, 140, 150, 40);
+        // Button Update Book
+        Icon updateBooksIcon = new ImageIcon(new ImageIcon("src/img/updatebook.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton updateBookButton = new JButton("UPDATE BOOK", updateBooksIcon);
+        updateBookButton.setBounds(20, 130, 160, 40);
         updateBookButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame g = new JFrame("Update Book");
+                JFrame uFrame = new JFrame("UPDATE BOOK");
+                uFrame.getContentPane().setBackground(new Color(0, 191, 255));
 
-                JLabel labelId = new JLabel("Book ID(id)");
+                JLabel labelId = new JLabel("Book Id");
                 labelId.setBounds(30, 15, 100, 30);
                 JTextField F_bid = new JTextField();
                 F_bid.setBounds(130, 15, 250, 30);
@@ -105,7 +139,7 @@ public class adminmenu {
                 F_year.setBounds(130, 135, 250, 30);
 
                 JButton updateButton = new JButton("Update");
-                updateButton.setBounds(130, 170, 100, 25);
+                updateButton.setBounds(130, 175, 100, 30);
 
                 updateButton.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -124,7 +158,7 @@ public class adminmenu {
                                 stmt.executeUpdate("UPDATE books SET book_name='" + bname + "', author='" + author
                                         + "', year=" + year + " WHERE id=" + bid);
                                 JOptionPane.showMessageDialog(null, "Book updated!");
-                                g.dispose();
+                                uFrame.dispose();
                             } catch (SQLException e1) {
                                 JOptionPane.showMessageDialog(null, e1);
                             }
@@ -135,29 +169,33 @@ public class adminmenu {
                     }
                 });
 
-                g.add(updateButton);
-                g.add(labelId);
-                g.add(F_bid);
-                g.add(labelBname);
-                g.add(F_bname);
-                g.add(labelAuthor);
-                g.add(F_genre);
-                g.add(labelYear);
-                g.add(F_year);
+                uFrame.add(updateButton);
+                uFrame.add(labelId);
+                uFrame.add(F_bid);
+                uFrame.add(labelBname);
+                uFrame.add(F_bname);
+                uFrame.add(labelAuthor);
+                uFrame.add(F_genre);
+                uFrame.add(labelYear);
+                uFrame.add(F_year);
 
-                g.setSize(450, 300);
-                g.setLayout(null);
-                g.setVisible(true);
-                g.setLocationRelativeTo(null);
+                uFrame.setSize(450, 300);
+                uFrame.setLayout(null);
+                uFrame.setVisible(true);
+                uFrame.setLocationRelativeTo(null);
             }
         });
 
-        JButton addBookButton = new JButton("Add Book");
-        addBookButton.setBounds(20, 200, 150, 40);
+        // Button Add Book
+        Icon addBooksIcon = new ImageIcon(new ImageIcon("src/img/addbook.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton addBookButton = new JButton("  ADD BOOK      ", addBooksIcon);
+        addBookButton.setBounds(20, 190, 160, 40);
         addBookButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                JFrame g = new JFrame("Add New Book");
+                JFrame aFrame = new JFrame("ADD NEW BOOK");
+                aFrame.getContentPane().setBackground(new Color(0, 191, 255));
 
                 JLabel labelBname, labelAuthor, labelYear;
                 labelBname = new JLabel("Book Name");
@@ -199,7 +237,7 @@ public class adminmenu {
                                         "INSERT INTO books(book_name, author, year) VALUES ('" + bname + "','" + author
                                                 + "'," + year + ")");
                                 JOptionPane.showMessageDialog(null, "Book added!");
-                                g.dispose();
+                                aFrame.dispose();
 
                             } catch (SQLException e1) {
                                 JOptionPane.showMessageDialog(null, e1);
@@ -212,26 +250,30 @@ public class adminmenu {
                     }
                 });
 
-                g.add(labelYear);
-                g.add(createButton);
-                g.add(labelBname);
-                g.add(labelAuthor);
-                g.add(F_bname);
-                g.add(F_author);
-                g.add(F_year);
-                g.setSize(450, 300);
-                g.setLayout(null);
-                g.setVisible(true);
-                g.setLocationRelativeTo(null);
+                aFrame.add(labelYear);
+                aFrame.add(createButton);
+                aFrame.add(labelBname);
+                aFrame.add(labelAuthor);
+                aFrame.add(F_bname);
+                aFrame.add(F_author);
+                aFrame.add(F_year);
+                aFrame.setSize(450, 300);
+                aFrame.setLayout(null);
+                aFrame.setVisible(true);
+                aFrame.setLocationRelativeTo(null);
             }
         });
 
-        JButton deleteBookButton = new JButton("Delete Book");
-        deleteBookButton.setBounds(20, 260, 150, 40);
+        // Button Delete Book
+        Icon dleteBooksIcon = new ImageIcon(new ImageIcon("src/img/deletebook.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton deleteBookButton = new JButton(" DELETE BOOK", dleteBooksIcon);
+        deleteBookButton.setBounds(20, 250, 160, 40);
         deleteBookButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFrame g = new JFrame("Delete Book");
+                JFrame g = new JFrame("DELETE");
 
+                g.getContentPane().setBackground(new Color(0, 191, 255));
                 JLabel labelId;
                 labelId = new JLabel("Book ID(id)");
                 labelId.setBounds(30, 15, 100, 30);
@@ -261,7 +303,7 @@ public class adminmenu {
                 g.add(deleteButton);
                 g.add(labelId);
                 g.add(F_bid);
-                g.setSize(350, 150);
+                g.setSize(380, 150);
                 g.setLayout(null);
                 g.setVisible(true);
                 g.setLocationRelativeTo(null);
@@ -269,17 +311,32 @@ public class adminmenu {
             }
         });
 
+        // Button Logout
+        Icon logoutIcon = new ImageIcon(new ImageIcon("src/img/logout.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton logoutButton = new JButton("  LOGOUT    ", logoutIcon);
+        logoutButton.setBounds(20, 310, 160, 40);
+        logoutButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose(); // Close the admin menu
+                splash.Splash();
+            }
+        });
+
+        f.add(dateTimeLabel);
+        f.add(backgroundLabel);
         f.add(viewBooksButton);
         f.add(viewUsersButton);
         f.add(updateBookButton);
         f.add(addBookButton);
         f.add(deleteBookButton);
+        f.add(logoutButton);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
-        f.setLayout(null);
         f.setVisible(true);
         f.setLocationRelativeTo(null);
 
     }
+
 }
