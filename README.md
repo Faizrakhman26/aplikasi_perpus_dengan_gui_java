@@ -1,4 +1,3 @@
-````markdown
 # Library Management Application with Java GUI
 
 Welcome to the Library Management Application with a Java GUI. This project provides a user-friendly interface for managing a library database. You can view, update, add, and delete books, as well as manage user accounts.
@@ -12,7 +11,6 @@ To get started with this project, follow these steps:
    ```bash
    git clone https://github.com/Faizrakhman26/aplikasi_perpus_dengan_gui_java.git
    ```
-````
 
 2. **Open the project** in Visual Studio Code or your preferred Java development environment.
 
