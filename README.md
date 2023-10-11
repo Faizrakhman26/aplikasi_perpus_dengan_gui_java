@@ -52,7 +52,7 @@ The application connects to a PostgreSQL database running on `localhost:5432`. M
 
 ## Author
 
-This project is authored by [Your Name] and is open-source. Contributions and suggestions are welcome.
+This project is authored by Faiz Rakhman and is open-source. Contributions and suggestions are welcome.
 
 ## License
 
