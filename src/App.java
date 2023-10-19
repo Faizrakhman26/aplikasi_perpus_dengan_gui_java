@@ -5,8 +5,12 @@ public class App {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 // Login.login();
-                // splash.Splash();
-                adminmenu.admin_menu();
+                splash.Splash();
+                // adminmenu.admin_menu();
+                // visitorsmenu VisitorsMenu = new visitorsmenu();
+                // VisitorsMenu.VisitorsMenu();
+                // borrowermenu BorrowerMenu = new borrowermenu();
+                // BorrowerMenu.BorrowerMenu();
             }
         });
     }

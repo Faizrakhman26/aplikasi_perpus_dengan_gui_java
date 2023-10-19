@@ -20,16 +20,16 @@ public class splash {
         backgroundLabel.setBounds(0, 0, 640, 360);
 
         // Create a JLabel for the title
-        JLabel titleLabel = new JLabel("PERPUSTAKAANKU");
+        JLabel titleLabel = new JLabel("MY LIBRARY");
         titleLabel.setForeground(Color.black);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 36)); // Set font and size
         Dimension labelSize = titleLabel.getPreferredSize();
         titleLabel.setBounds((640 - labelSize.width) / 2, 160, labelSize.width, labelSize.height);
 
         // Create a JButton to navigate to the admin menu
-        JButton adminMenuButton = new JButton("Login");
-        adminMenuButton.setBounds(250, 250, 100, 30);
-        adminMenuButton.addActionListener(new ActionListener() {
+        JButton login = new JButton("Login");
+        login.setBounds(250, 250, 100, 30);
+        login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Open the admin menu when the button is clicked
                 Login.login();
@@ -40,7 +40,7 @@ public class splash {
         // Add components to the splash form
         backgroundLabel.add(titleLabel);
         splashFrame.add(backgroundLabel);
-        splashFrame.add(adminMenuButton);
+        splashFrame.add(login);
 
         // Make the splash form visible
         splashFrame.setVisible(true);
