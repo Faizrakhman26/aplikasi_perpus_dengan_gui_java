@@ -4,8 +4,8 @@ public class App {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                // Login.login();
                 splash.Splash();
+                // Login.login();
                 // adminmenu.admin_menu();
                 // visitorsmenu VisitorsMenu = new visitorsmenu();
                 // VisitorsMenu.VisitorsMenu();

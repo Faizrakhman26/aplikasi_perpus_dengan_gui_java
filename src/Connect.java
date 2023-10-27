@@ -5,9 +5,9 @@ import java.sql.SQLException;
 public class Connect {
     public static Connection connect() {
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/library",
-                    "postgres", "1234");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library",
+                    "root", "");
             return con;
         } catch (ClassNotFoundException | SQLException ex) {
             ex.printStackTrace();

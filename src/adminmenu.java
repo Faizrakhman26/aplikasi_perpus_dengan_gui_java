@@ -75,18 +75,6 @@ public class adminmenu {
             }
         });
 
-        // Button Logout
-        Icon logoutIcon = new ImageIcon(new ImageIcon("src/img/logout.png").getImage()
-                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
-        JButton logoutButton = new JButton("  LOGOUT    ", logoutIcon);
-        logoutButton.setBounds(20, 250, 180, 40);
-        logoutButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                f.dispose(); // Close the admin menu
-                splash.Splash();
-            }
-        });
-
         // Button View Visitors
         Icon viewVisitorsIcon = new ImageIcon(new ImageIcon("src/img/visitor.png").getImage()
                 .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
@@ -108,6 +96,18 @@ public class adminmenu {
             public void actionPerformed(ActionEvent e) {
                 borrowermenu BorrowerMenu = new borrowermenu();
                 BorrowerMenu.BorrowerMenu();
+            }
+        });
+
+        // Button Logout
+        Icon logoutIcon = new ImageIcon(new ImageIcon("src/img/logout.png").getImage()
+                .getScaledInstance(32, 32, Image.SCALE_DEFAULT));
+        JButton logoutButton = new JButton("  LOGOUT    ", logoutIcon);
+        logoutButton.setBounds(20, 250, 180, 40);
+        logoutButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                f.dispose(); // Close the admin menu
+                splash.Splash();
             }
         });
 

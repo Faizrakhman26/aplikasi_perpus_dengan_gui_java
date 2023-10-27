@@ -5,7 +5,6 @@ import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import com.toedter.calendar.JDateChooser;
 
 public class borrowermenu {
@@ -105,7 +104,7 @@ public class borrowermenu {
         formPanel.setBackground(new Color(0, 191, 255));// Set the layout to null
 
         // Dropdown menu untuk ID Visitor
-        JLabel idVisitorLabel = new JLabel("ID Visitor");
+        JLabel idVisitorLabel = new JLabel("Visitor ID");
         idVisitorLabel.setBounds(30, 15, 100, 30);
         JComboBox<String> idVisitorDropdown = new JComboBox<>();
         fillVisitorDropdown(idVisitorDropdown); // Isi dropdown dengan ID Visitor dari database
@@ -117,7 +116,7 @@ public class borrowermenu {
         visitorNameField.setEditable(false);
 
         // Dropdown menu untuk ID Buku
-        JLabel idBookLabel = new JLabel("ID Buku");
+        JLabel idBookLabel = new JLabel("Book ID");
         idBookLabel.setBounds(30, 90, 100, 30);
         JComboBox<String> idBookDropdown = new JComboBox<>();
         fillBookDropdown(idBookDropdown); // Isi dropdown dengan ID Buku dari database

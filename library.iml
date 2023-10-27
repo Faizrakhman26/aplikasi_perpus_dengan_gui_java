@@ -7,8 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="postgresql-42.6.0" level="project" />
-    <orderEntry type="library" name="rs2xml" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -19,5 +17,8 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="postgresql-42.6.01" level="project" />
+    <orderEntry type="library" name="rs2xml" level="project" />
+    <orderEntry type="library" name="jcalendar-1.4" level="project" />
+    <orderEntry type="library" name="mysql-connector-j-8.2.0" level="project" />
   </component>
 </module>
