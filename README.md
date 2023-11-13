@@ -14,7 +14,7 @@ Untuk menggunakan aplikasi nya ikuti langkah berikut :
 3. **Download External Library** yang sudah disediakan.
 4. **Download juga Database**.
 5. **Import** Terlebih dahulu untuk databasenya ke mysql ( nama database `library` ).
-6. **Tambahkan External LIbrary** ke IDE kalian ( Untuk menambahkan bisa seaching ).
+6. **Tambahkan External Library** ke IDE kalian ( Untuk menambahkan bisa seaching ).
 7. **Buka class `App.java`** dan jalankan programnya
    
    ( untuk username dan password default = `admin` `admin` ).
